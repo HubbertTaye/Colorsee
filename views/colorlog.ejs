@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Colorsee</title>
+  </head>
+  <body>
+    <!-- div to style buttons layout -->
+    <div class="">
+      <!-- button to redirect to make palettes page -->
+      <button type="button" name="mkPalettes">Create New Palette</button>
+      <!-- button to redirect to palette gallery page -->
+      <button type="button" name="paletteGal">To Palette Gallery</button>
+    </div>
+
+    <!-- display list of colors user saved from dom -->
+    <ul>
+      <% for(var i=0; i<colors.length; i++) {%>
+      <li>
+        <!-- placeholders for now -->
+        <span>colors[i].color</span>
+        <span>colors[i].name</span>
+        <span>colors[i].hex</span>
+        <span>colors[i].rgb</span>
+        <span><i class="fas fa-backspace"></i></span>
+      </li>
+      <%}%>
+    </ul>
+  </body>
+</html>
