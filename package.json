@@ -17,12 +17,10 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
   },
-  "devDependencies": {
-    "nodemon": "^1.18.10"
-  },
   "scripts": {
     "color": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "parcelify server.js -c bundle.css"
   },
   "repository": {
     "type": "git",
@@ -33,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/HubbertTaye/Colorsee/issues"
   },
-  "homepage": "https://github.com/HubbertTaye/Colorsee#readme"
+  "homepage": "https://github.com/HubbertTaye/Colorsee#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
 }

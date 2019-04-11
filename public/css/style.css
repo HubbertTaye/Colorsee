@@ -1,0 +1,68 @@
+*{
+  box-sizing: border-box;
+}
+body {
+    margin: 0;
+    text-align: center;
+}
+header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100px;
+  background:  url(../img/colorsee_finalproject_banner_.png) no-repeat center;
+  background-size: cover;
+  background-position: bottom center;
+  height: 300px;
+}
+header h1{
+  color: white;
+  margin: 5px 0;
+}
+header p{
+  color: white;
+  margin: 0 0;
+}
+button{
+  padding: 2px 5px;
+  border-radius: 10px;
+  background: white
+}
+.middle-container{
+  display: flex;
+  justify-content: center;
+  margin:30px 0 0 35%;
+  width: 30%;
+  flex-direction: column;
+}
+.btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin: 0 0;
+}
+.web-auth-btn{
+  border: none;
+  padding: 10px 15px;
+}
+.web-auth-btn:hover{
+  border: 1px solid rgb(0, 204, 102);
+  border-radius: 25px;
+}
+.btn-container:first-of-type + p{
+  font-size: 3em;
+  margin: 0 0;
+  color: rgb(230,230,230);
+}
+.web-auth-btn a{
+  font-size: 2em;
+  text-decoration: none;
+  color: rgb(0, 204, 102);
+}
+.web-auth-btn a:hover{
+  color: rgb(150, 150, 150);
+}
+
+/* LOG IN PAGE */
