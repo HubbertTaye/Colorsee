@@ -24,10 +24,16 @@ header p{
   color: white;
   margin: 0 0;
 }
+p, label{
+  color: rgb(150, 150, 150); /*Manatee (dark gray)*/
+}
+a{
+  text-decoration: none;
+  color: rgb(0, 204, 102); /*Malachite*/
+}
 button{
-  padding: 2px 5px;
-  border-radius: 10px;
-  background: white
+  background: white;
+  color:
 }
 .middle-container{
   display: flex;
@@ -45,24 +51,45 @@ button{
 }
 .web-auth-btn{
   border: none;
+  background: white;
+  color: rgb(0, 204, 102);
   padding: 10px 15px;
 }
 .web-auth-btn:hover{
-  border: 1px solid rgb(0, 204, 102);
+  border: 1px solid rgb(0, 204, 102); /*Malachite*/
   border-radius: 25px;
+  color: rgb(150, 150, 150); /*Manatee (dark gray)*/
 }
 .btn-container:first-of-type + p{
   font-size: 3em;
   margin: 0 0;
-  color: rgb(230,230,230);
+  color: rgb(230,230,230); /*Platinum*/
 }
 .web-auth-btn a{
   font-size: 2em;
-  text-decoration: none;
-  color: rgb(0, 204, 102);
 }
 .web-auth-btn a:hover{
-  color: rgb(150, 150, 150);
+  color: rgb(150, 150, 150); /*Manatee (dark gray)*/
 }
 
 /* LOG IN PAGE */
+.elbowroom{
+  margin: 10px 0;
+}
+.auth-text{
+  border-radius: 15px;
+  border: 1px solid rgb(150, 150, 150); /*Manatee (dark gray)*/
+}
+.small-btn{
+  padding: 3px 6px;
+}
+.bottom-container{
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  justify-content: center;
+}
+.bottom-container p{
+  margin: 0 0;
+}

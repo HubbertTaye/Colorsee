@@ -7,7 +7,13 @@ module.exports = function(app, passport, db) {
         res.render('index.ejs');
     });
 
-    app.get('/colorlog', function(req, res) {
+    app.get('/activate', isLoggedIn, function(req, res){
+      res.render('activate.ejs', {
+        user: req.user
+      });
+    });
+
+    app.get('/colorlog', isLoggedIn, function(req, res) {
       db.collection('colors').find().toArray((err, result) => {
         if (err) return console.log(err)
         res.render('colorlog.ejs', {
@@ -17,7 +23,7 @@ module.exports = function(app, passport, db) {
       })
     });
 //render user's made palettes from palette collection into palette gallery page
-    app.get('/palettegalry', function(req, res) {
+    app.get('/palettegalry', isLoggedIn, function(req, res) {
       db.collection('palettes').find().toArray((err, result) => {
         if (err) return console.log(err)
         res.render('palettegalry.ejs', {
@@ -27,8 +33,24 @@ module.exports = function(app, passport, db) {
         })
       })
     });
+    //===============================================================
+    
+    //post into colors collection of database
+    app.post('/colors', (req, res) => {
+      //mandatory: save colors for a specific user
+        //should i collect all users in an array for similar colors or pass a new object ID and create a new document for each color that id has?
 
-    // =============================================================================
+        //optimize: prevent user from saving a color they already have
+        db.collection('colors').save({alias: req.body.alias, rgb: req.body.rgb, hex: req.body.hex}, (err, result) => {
+          if (err) return console.log(err)
+          console.log('saved to database')
+
+        //optimize: page redirects to a page that simply contains the string "Color is saved to Color Log!" styled on timeout for a few seconds before redirecting back to /activate
+          res.redirect('/activate')
+        })
+      })//closes post into color collection
+
+        // ===================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================
 
@@ -54,7 +76,7 @@ module.exports = function(app, passport, db) {
 
         // process the signup form
         app.post('/signup', passport.authenticate('local-signup', {
-            successRedirect : '/colorlog', // redirect to main page
+            successRedirect : '/activate', // redirect to main page
             failureRedirect : '/signup', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));

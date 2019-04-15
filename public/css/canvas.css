@@ -1,0 +1,22 @@
+#container {
+  position: relative;
+}
+#container canvas, #overlay {
+  position: absolute;
+}
+canvas {
+  border: 1px solid black;
+}
+.btm-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+#preview{
+  width: 100px;
+  height: 100px;
+}
+.btm-container div{
+  padding: 0 0 0 10px;
+  flex-direction: row;
+}
