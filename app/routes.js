@@ -44,7 +44,8 @@ module.exports = function(app, passport, db) {
         })
       })
     });
-    //===============================================================
+
+  //===============================================================
 
     //post into colors collection of database
     app.post('/colors', (req, res) => {
@@ -52,7 +53,7 @@ module.exports = function(app, passport, db) {
         //should i collect all users in an array for similar colors or pass a new object ID and create a new document for each color that id has?
 
         //optimize: prevent user from saving a color they already have
-        db.collection('colors').save({alias: req.body.alias, rgb: req.body.rgb, hex: req.body.hex}, (err, result) => {
+        db.collection('colors').insertOne({alias: req.body.alias, rgb: req.body.rgb, hex: req.body.hex}, (err, result) => {
           if (err) return console.log(err)
           console.log('saved to database')
 
@@ -61,6 +62,13 @@ module.exports = function(app, passport, db) {
         })
       })//closes post into color collection
 
+    //post into palettes collection of database
+    app.post('/palette', (req, res) =>{
+      db.collection('palettes').insertOne({title: req.body.title, desc: req.body.desc, colors: req.body.colors}, (err, result) =>{
+        if (err) return console.log(err)
+        console.log('saved to database')
+      })
+    })
         // ===================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================

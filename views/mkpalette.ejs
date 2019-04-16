@@ -10,9 +10,9 @@
       <h1>Palette Creation</h1>
     </header>
     <section>
-      <form class="">
-        <input type="text" name="paletteName" placeholder="Palette Name">
-        <textarea name="description" placeholder="Optional Description"></textarea>
+      <form class="creation">
+        <input type="text" id="palName" placeholder="Palette Name">
+        <textarea id="desc" placeholder="Optional Description"></textarea>
         <!-- display color log colors for specific user to select from -->
         <div class="">
           <p>Pick complimentary colors for your new palette!</p>
@@ -25,13 +25,15 @@
                 <span><%= colors[i].hex %></span>
                 <span><%= colors[i].rgb %></span>
               </div>
-              <span><input type="checkbox" name="addPal"></span>
+              <span><input type="checkbox" class="addColor"></span>
             </li>
             <%}%>
           </ul>
         </div>
-        <button type="submit" name="mkPalBtn">Create Palette</button>
+        <button type="button" name="mkPalBtn">Create Palette</button>
       </form>
     </section>
+
+    <script type="text/javascript" src="js/palettes.js"></script>
   </body>
 </html>
