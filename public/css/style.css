@@ -32,8 +32,15 @@ a{
   color: rgb(0, 204, 102); /*Malachite*/
 }
 button{
+  font-size: 1em;
+  padding: 7px 10px;
   background: white;
-  color:
+  color: rgb(0, 204, 102);
+  border: 1px solid rgb(150, 150, 150);
+  border-radius: 25px;
+}
+ul{
+  width: 100%;
 }
 .middle-container{
   display: flex;
@@ -93,10 +100,14 @@ button{
 .bottom-container p{
   margin: 0 0;
 }
+
+/* colorlog tabs */
 .color-tabs{
 width: 30%;
 padding: 10px;
-border: 1px solid black;
+margin-bottom: 5px;
+color: rgb(150, 150, 150);
+border: 1px solid rgb(150, 150, 150);
 border-radius: 25px;
 display: flex;
 flex-wrap: wrap;
@@ -113,10 +124,27 @@ flex-wrap: wrap;
 .color-tabs .btm span{
   width: 100%;
 }
-/* .color-tabs .btm div{
-  width: 100%;
-} */
 .btm + span input{
   width: 20px;
   height: 20px;
+}
+
+/* PALETTE CREATION */
+.creation{
+  width: 100%;
+}
+.create-top, .create-btm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.create-top input{
+  width: 20%;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+textarea{
+  width: 50%;
+  height: 100px;
+  padding: 5px 10px;
 }
