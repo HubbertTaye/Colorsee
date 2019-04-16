@@ -72,7 +72,7 @@ button{
   color: rgb(150, 150, 150); /*Manatee (dark gray)*/
 }
 
-/* LOG IN PAGE */
+/* RETURNING USER PAGE */
 .elbowroom{
   margin: 10px 0;
 }
@@ -92,4 +92,31 @@ button{
 }
 .bottom-container p{
   margin: 0 0;
+}
+.color-tabs{
+width: 30%;
+padding: 10px;
+border: 1px solid black;
+border-radius: 25px;
+display: flex;
+flex-wrap: wrap;
+}
+.color-tabs span:first-of-type{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  float:left;
+}
+.color-tabs .btm{
+  width: 80%;
+}
+.color-tabs .btm span{
+  width: 100%;
+}
+/* .color-tabs .btm div{
+  width: 100%;
+} */
+.btm + span input{
+  width: 20px;
+  height: 20px;
 }

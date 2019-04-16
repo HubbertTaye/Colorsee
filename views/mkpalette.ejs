@@ -6,6 +6,32 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-
+    <header>
+      <h1>Palette Creation</h1>
+    </header>
+    <section>
+      <form class="">
+        <input type="text" name="paletteName" placeholder="Palette Name">
+        <textarea name="description" placeholder="Optional Description"></textarea>
+        <!-- display color log colors for specific user to select from -->
+        <div class="">
+          <p>Pick complimentary colors for your new palette!</p>
+          <ul>
+            <% for(var i=0; i<colors.length; i++) {%>
+            <li class="color-tabs">
+              <span style="background:<%=colors[i].rgb%>;"></span>
+              <div class="btm">
+                <span><%= colors[i].alias %></span>
+                <span><%= colors[i].hex %></span>
+                <span><%= colors[i].rgb %></span>
+              </div>
+              <span><input type="checkbox" name="addPal"></span>
+            </li>
+            <%}%>
+          </ul>
+        </div>
+        <button type="submit" name="mkPalBtn">Create Palette</button>
+      </form>
+    </section>
   </body>
 </html>

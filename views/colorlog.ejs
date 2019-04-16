@@ -14,19 +14,26 @@
         <a href="/activate">Color Picker</a>
       </button>
       <!-- button to redirect to make palettes page -->
-      <button type="button" name="mkPalettes">Create New Palette</button>
+      <button type="button">
+        <a href="/mkpalette">Create New Palette</a>
+      </button>
       <!-- button to redirect to palette gallery page -->
-      <button type="button" name="paletteGal">To Palette Gallery</button>
+      <button type="button">
+        <a href="/palettegalry">To Palette Gallery</a>
+      </button>
+
     </div>
 
     <!-- display list of colors user saved from dom -->
     <ul>
       <% for(var i=0; i<colors.length; i++) {%>
-      <li>
-        <span><style>.preview{width:40px;height:40px;background:<%=colors[i].rgb%>}</style><div class="preview"></div></span>
-        <span><%= colors[i].alias %></span>
-        <span><%= colors[i].hex %></span>
-        <span><%= colors[i].rgb %></span>
+      <li class="color-tabs">
+        <span style="background:<%=colors[i].rgb%>;"></span>
+        <div class="btm">
+          <span><%= colors[i].alias %></span>
+          <span><%= colors[i].hex %></span>
+          <span><%= colors[i].rgb %></span>
+        </div>
         <span><i class="fas fa-backspace"></i></span>
       </li>
       <%}%>

@@ -22,6 +22,17 @@ module.exports = function(app, passport, db) {
         })
       })
     });
+
+    app.get('/mkpalette', isLoggedIn, function(req, res) {
+      db.collection('colors').find().toArray((err, result) => {
+        if (err) return console.log(err)
+        res.render('mkpalette.ejs', {
+          user : req.user,
+          colors: result
+        })
+      })
+    });
+
 //render user's made palettes from palette collection into palette gallery page
     app.get('/palettegalry', isLoggedIn, function(req, res) {
       db.collection('palettes').find().toArray((err, result) => {
@@ -34,7 +45,7 @@ module.exports = function(app, passport, db) {
       })
     });
     //===============================================================
-    
+
     //post into colors collection of database
     app.post('/colors', (req, res) => {
       //mandatory: save colors for a specific user
