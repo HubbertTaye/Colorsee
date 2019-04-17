@@ -56,7 +56,7 @@ function drawImageFromWebUrl(sourceurl){
       img.setAttribute("src", sourceurl);
 }
 // Draw a base64 image if we try with an image from URL we'll get tainted canvas error
-drawImageFromWebUrl('img/IMG_2841.jpg');
+drawImageFromWebUrl('img/IMG_2843.jpg');
 
 //starting event listener to return color wherever the mouse moves to on the canvas
 canvas.addEventListener("mousemove",function(e){

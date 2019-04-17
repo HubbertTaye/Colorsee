@@ -64,7 +64,7 @@ module.exports = function(app, passport, db) {
 
     //post into palettes collection of database
     app.post('/palette', (req, res) =>{
-      db.collection('palettes').insertOne({title: req.body.title, desc: req.body.desc, colors: req.body.colors}, (err, result) =>{
+      db.collection('palettes').insertOne({title: req.body.title, desc: req.body.desc, colors: req.body.colors, image: req.body.image}, (err, result) =>{
         if (err) return console.log(err)
         console.log('saved to database')
       })

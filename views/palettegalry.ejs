@@ -3,11 +3,38 @@
   <head>
     <meta charset="utf-8">
     <title>Colorsee</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+    <header>
+      <!-- where to place navigational links in the dom (directory to color picker, color log, new palette page, palette gallery...) -->
+      <!-- <nav>
+        <ul>
+          <li></li>
+        </ul>
+      </nav> -->
+      <h1>Palettes Gallery</h1>
+    </header>
     <section>
-      <h1>Palettes</h1>
+      <!--if u remove the div pls edit save.js variable that holds img src-->
+      <ul>
+        <% for(var i=0; i<palettes.length; i++) {%>
+        <li class="">
+          <div class="">
+            <span>
+              <img src="<%=palettes[i].image%>" alt="">
+            </span>
+            <span><%= palettes[i].title %></span>
+            <span class="desc"><%= palettes[i].desc %></span>
+            <span><%= palettes[i].colors[0].alias %></span>
+          </div>
+          <span><i class="fas fa-download"></i></span>
+          <span><i class="fas fa-times-circle"></i></span>
+        </li>
+        <%}%>
+      </ul>
     </section>
+    <script type="text/javascript" src="js/save.js"></script>
   </body>
 </html>

@@ -148,3 +148,9 @@ textarea{
   height: 100px;
   padding: 5px 10px;
 }
+.side-disp{
+  position: absolute;
+  top: 600px;
+  left: 700px;
+  border: 1px solid black;
+}
