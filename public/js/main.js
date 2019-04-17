@@ -80,7 +80,7 @@ canvas.addEventListener("mousemove",function(e){
 },false);
 
 //upon mouse event click take the color value in #preview and save to database (color log)
-canvas.addEventListener("click",function(e){
+canvas.addEventListener("click", function(e){
 	  var eventLocation = getEventLocation(this,e);
     var coord = "x=" + eventLocation.x + ", y=" + eventLocation.y;
 
@@ -128,42 +128,36 @@ function saveColor(name, rgb, hex){
   .then(data =>{
     console.log(data)
     //optimize: reload to "Color is saved to Color Log!" styled page timeout for a few then redirect back to activate page
-    window.location.reload(true)
-  })
- }
+    // let hPopup = document.querySelector('.hover_bkgr').style.display;
+    // hPopup = 'block';
+    // document.querySelector('.popupCloseButton').addEventListener('click', function(){
+    //   hPopup = 'none';
+    })
+    //window.location.reload(true)
+  }
 //============================================================================
 
-// vvv outside api vvv
-// create a click event on a button to run function that triggers the 'color picker' for browsing, keep popup open when user clicks on a color display hex, rgb (use color api?) to display in the popup and the save button
-
-// vvv database vvv
-// three collections: user (dont touch), colors (based on user session), palettes (based on user session)
 
 // vvv own api vvv
 // save button function fetches to own api (post) and saves the color in specific user's post (do i have a seperate collection for each user's color or do i utilize the user IDs?)
 
-// ========= after user login page ========== //
+// ========= activate (color picker) page ========== //
 //as chrome extension pop up
-//button to activate the color picker //click again gives color info aka preview //second click saves color into color log
-//display color log in a new tab in the pop up?? so user doesnt save the same color
+//button to activate the color picker (color preview above the button. on mousemove the color changes)
+//click within the page to save the color
+//if user alrdy owns the color dont save to db
 
 // ============ color log page ============= //
-//make color palette and palette gallery buttons at the top. redirect to respected pages
-//display colors from specific user in colors collection on the page
-//color collection must contain: color visual (img), color name(?), rgb and hex codes. (retrieved from color api then sent to own api/color collection db, then displayed into color log)
+//navigation bar should navigate user throughout the app
+//DISPLAY COLORS from SPECIFIC USER in colors collection on the page
 //delete req: delete saved colors
 
 // ============ make palette page ============= //
 
-// "make palette" button function redirects to palette creation page which is a form that makes another post req to own api
-
-// render color documents in color collection for specific user for the user to PICK colors from
-// user can pick colors, create palette name, optional palette description
-//on the click of create button: take the selected colors from color collection - take color code (rgb or hex) combine and display into one image, send to routes to create a new doc in palettes collection
-//create a new document in palettes collection containing the newly made palette image, palette name and optional description.
+//needs better styling
 
 
 // ============ palettes gallery page ========== //
-//display all palettes from user in palettes collection on the page
+//DISPLAY PALETTES from SPECIFIC USER from palettes collection on the page
 // update req: change palette name && || description
 // delete: delete palettes

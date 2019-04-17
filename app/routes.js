@@ -14,7 +14,7 @@ module.exports = function(app, passport, db) {
     });
 
     app.get('/colorlog', isLoggedIn, function(req, res) {
-      db.collection('colors').find().toArray((err, result) => {
+      db.collection('colors').find({userId: req.session.passport.id}).toArray((err, result) => {
         if (err) return console.log(err)
         res.render('colorlog.ejs', {
           user : req.user,
@@ -24,7 +24,7 @@ module.exports = function(app, passport, db) {
     });
 
     app.get('/mkpalette', isLoggedIn, function(req, res) {
-      db.collection('colors').find().toArray((err, result) => {
+      db.collection('colors').find({userId: req.session.passport.id}).toArray((err, result) => {
         if (err) return console.log(err)
         res.render('mkpalette.ejs', {
           user : req.user,
@@ -35,7 +35,7 @@ module.exports = function(app, passport, db) {
 
 //render user's made palettes from palette collection into palette gallery page
     app.get('/palettegalry', isLoggedIn, function(req, res) {
-      db.collection('palettes').find().toArray((err, result) => {
+      db.collection('palettes').find({userId: req.session.passport.id}).toArray((err, result) => {
         if (err) return console.log(err)
         res.render('palettegalry.ejs', {
           user : req.user,
@@ -53,18 +53,18 @@ module.exports = function(app, passport, db) {
         //should i collect all users in an array for similar colors or pass a new object ID and create a new document for each color that id has?
 
         //optimize: prevent user from saving a color they already have
-        db.collection('colors').insertOne({alias: req.body.alias, rgb: req.body.rgb, hex: req.body.hex}, (err, result) => {
+        db.collection('colors').insertOne({alias: req.body.alias, rgb: req.body.rgb, hex: req.body.hex, userId: req.session.passport.id}, (err, result) => {
           if (err) return console.log(err)
           console.log('saved to database')
 
         //optimize: page redirects to a page that simply contains the string "Color is saved to Color Log!" styled on timeout for a few seconds before redirecting back to /activate
-          res.redirect('/activate')
+          res.redirect('/colorlog')
         })
       })//closes post into color collection
 
     //post into palettes collection of database
     app.post('/palette', (req, res) =>{
-      db.collection('palettes').insertOne({title: req.body.title, desc: req.body.desc, colors: req.body.colors, image: req.body.image}, (err, result) =>{
+      db.collection('palettes').insertOne({title: req.body.title, desc: req.body.desc, colors: req.body.colors, image: req.body.image, userId: req.session.passport.id}, (err, result) =>{
         if (err) return console.log(err)
         console.log('saved to database')
       })

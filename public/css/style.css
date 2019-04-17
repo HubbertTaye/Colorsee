@@ -42,6 +42,9 @@ button{
 ul{
   width: 100%;
 }
+li{
+  list-style: none;
+}
 .middle-container{
   display: flex;
   justify-content: center;

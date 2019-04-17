@@ -20,14 +20,16 @@
       <!--if u remove the div pls edit save.js variable that holds img src-->
       <ul>
         <% for(var i=0; i<palettes.length; i++) {%>
-        <li class="">
-          <div class="">
+        <li>
+          <div class="pal-box">
             <span>
               <img src="<%=palettes[i].image%>" alt="">
             </span>
-            <span><%= palettes[i].title %></span>
-            <span class="desc"><%= palettes[i].desc %></span>
-            <span><%= palettes[i].colors[0].alias %></span>
+            <div class="pal-info">
+              <span><%= palettes[i].title %></span>
+              <span class="desc"><%= palettes[i].desc %></span>
+              <span><%= palettes[i].colors[0].alias %></span>
+            </div>
           </div>
           <span><i class="fas fa-download"></i></span>
           <span><i class="fas fa-times-circle"></i></span>

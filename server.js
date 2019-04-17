@@ -4,6 +4,7 @@ const port = process.env.PORT || 5000;
 
 const MongoClient = require('mongodb').MongoClient
 const mongoose = require('mongoose');
+const html2canvas = require('html2canvas');
 
 const morgan = require('morgan');
 

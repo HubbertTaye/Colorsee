@@ -1,3 +1,7 @@
+// ========================================================================= //
+// ==== saves specific palette image when user clicks on "download" btn ===== //
+// ========================================================================= //
+
 //declare a variable to hold all the download icons in palettegalry.ejs
 let dnlds = document.querySelectorAll('.fa-download')
 
