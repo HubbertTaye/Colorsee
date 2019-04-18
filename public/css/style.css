@@ -10,32 +10,46 @@ header{
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100px;
   background:  url(../img/colorsee_finalproject_banner_.png) no-repeat center;
   background-size: cover;
   background-position: bottom center;
   height: 300px;
 }
 header h1{
+  font-size: 3em;
   color: white;
-  margin: 5px 0;
+  margin: 110px 0 5px 0;
 }
 header p{
   color: white;
   margin: 0 0;
+}
+header nav ul li{
+  font-size: 1.3em;
+  float: left;
+  margin-top: 100px;
+  border-radius: 25px;
+  padding: 5px 10px;
+}
+header nav ul li:hover{
+  background: rgb(218, 231, 193); /* Light Grayish Green */
+}
+header nav ul li:first-of-type{
+  margin-right: 910px;
+  margin-left: -50px;
 }
 p, label{
   color: rgb(150, 150, 150); /*Manatee (dark gray)*/
 }
 a{
   text-decoration: none;
-  color: rgb(0, 204, 102); /*Malachite*/
+  color: rgb(206,193,231); /* Light Grayish Violet */
 }
 button{
   font-size: 1em;
   padding: 7px 10px;
   background: white;
-  color: rgb(0, 204, 102);
+  color: gb(206,193,231); /* Light Grayish Violet */
   border: 1px solid rgb(150, 150, 150);
   border-radius: 25px;
 }
@@ -105,8 +119,14 @@ li{
 }
 
 /* colorlog tabs */
+.color-sect{
+  margin: 20px 0 0 0;
+  -webkit-columns: 3 100px;
+     -moz-columns: 3 100px;
+          columns: 3 100px;
+}
 .color-tabs{
-width: 30%;
+width: 100%;
 padding: 10px;
 margin-bottom: 5px;
 color: rgb(150, 150, 150);
@@ -114,6 +134,9 @@ border: 1px solid rgb(150, 150, 150);
 border-radius: 25px;
 display: flex;
 flex-wrap: wrap;
+-webkit-column-break-inside: avoid; /* Chrome, Safari */
+   page-break-inside: avoid;     /* Theoretically FF 20+ */
+   break-inside: avoid-column;  /* IE 11 */
 }
 .color-tabs span:first-of-type{
   display: inline-block;
@@ -156,4 +179,33 @@ textarea{
   top: 600px;
   left: 700px;
   border: 1px solid black;
+}
+
+/* PALETTE GALLERY */
+.new-pal{
+  width: 100%;
+  height: 295px;
+  margin-top: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.fa-plus-circle{
+  font-size: 3em;
+  color: white;
+  background: rgb(203, 232, 225);
+  border-radius: 50%;
+}
+.new-pal p{
+  color: rgb(150, 150, 150);
+}
+.new-pal:hover{
+  background: rgb(211, 230, 242);
+}
+.pal-box{
+  margin: 0 0 20px 0;
+}
+.size{
+  width: 30%;
 }

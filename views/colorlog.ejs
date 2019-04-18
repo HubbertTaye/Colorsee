@@ -1,42 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Colorsee</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-    <!-- div to style buttons layout -->
-    <div class="">
-      <!-- will change to nav icon -->
-      <button type="button" name="activatePg">
-        <a href="/activate">Color Picker</a>
-      </button>
-      <!-- button to redirect to make palettes page -->
-      <button type="button">
-        <a href="/mkpalette">Create New Palette</a>
-      </button>
-      <!-- button to redirect to palette gallery page -->
-      <button type="button">
-        <a href="/palettegalry">To Palette Gallery</a>
-      </button>
-
-    </div>
-
-    <!-- display list of colors user saved from dom -->
+<head>
+  <meta charset="utf-8">
+  <title>Colorsee</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Color Log</h1>
+    <nav>
+      <ul>
+        <li><a href="/activate">Home</a></li>
+        <li><a href="/palettegalry">Gallery</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- display list of colors user saved from dom -->
+  <section class="color-sect">
     <ul>
       <% for(var i=0; i<colors.length; i++) {%>
-      <li class="color-tabs">
-        <span style="background:<%=colors[i].rgb%>;"></span>
-        <div class="btm">
-          <span><%= colors[i].alias %></span>
-          <span><%= colors[i].hex %></span>
-          <span><%= colors[i].rgb %></span>
-        </div>
-        <span><i class="fas fa-times-circle"></i></span>
-      </li>
-      <%}%>
-    </ul>
+        <li class="color-tabs">
+          <span style="background:<%=colors[i].rgb%>;"></span>
+          <div class="btm">
+            <span><%= colors[i].alias %></span>
+            <span><%= colors[i].hex %></span>
+            <span><%= colors[i].rgb %></span>
+          </div>
+          <span><i class="fas fa-times-circle"></i></span>
+        </li>
+        <%}%>
+      </ul>
+    </section>
+    <script type="text/javascript" src="js/colors.js"></script>
   </body>
-</html>
+  </html>

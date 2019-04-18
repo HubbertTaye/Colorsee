@@ -8,20 +8,28 @@
   </head>
   <body>
     <header>
-      <!-- where to place navigational links in the dom (directory to color picker, color log, new palette page, palette gallery...) -->
-      <!-- <nav>
-        <ul>
-          <li></li>
-        </ul>
-      </nav> -->
       <h1>Palettes Gallery</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/activate">Home</a></li>
+          <li>
+            <a href="/colorlog">Color Log</a></li>
+        </ul>
+      </nav>
     </header>
     <section>
+      <section class="new-pal">
+        <a href="/mkpalette">
+          <i class="fas fa-plus-circle"></i>
+          <p>New Palette</p>
+        </a>
+      </section>
       <!--if u remove the div pls edit save.js variable that holds img src-->
       <ul>
         <% for(var i=0; i<palettes.length; i++) {%>
-        <li>
-          <div class="pal-box">
+        <li class="pal-box">
+          <div>
             <span>
               <img src="<%=palettes[i].image%>" alt="">
             </span>

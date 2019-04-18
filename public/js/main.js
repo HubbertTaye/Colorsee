@@ -56,7 +56,7 @@ function drawImageFromWebUrl(sourceurl){
       img.setAttribute("src", sourceurl);
 }
 // Draw a base64 image if we try with an image from URL we'll get tainted canvas error
-drawImageFromWebUrl('img/IMG_2843.jpg');
+drawImageFromWebUrl('img/IMG_2843.jpg'); //allow users to input their own images
 
 //starting event listener to return color wherever the mouse moves to on the canvas
 canvas.addEventListener("mousemove",function(e){
@@ -102,7 +102,6 @@ canvas.addEventListener("click", function(e){
     .then(response =>{
       let rgb = `rgb(${response.colors[0].rgb.r}, ${response.colors[0].rgb.g}, ${response.colors[0].rgb.b})`
       let colorName = response.colors[0].name
-      console.log(response, rgb, response.colors[0].name)
       document.querySelector('#preview').style.backgroundColor = hex;
       //document.querySelector('p').textContent = rgb || status
 
@@ -128,6 +127,7 @@ function saveColor(name, rgb, hex){
   .then(data =>{
     console.log(data)
     //optimize: reload to "Color is saved to Color Log!" styled page timeout for a few then redirect back to activate page
+
     // let hPopup = document.querySelector('.hover_bkgr').style.display;
     // hPopup = 'block';
     // document.querySelector('.popupCloseButton').addEventListener('click', function(){
@@ -138,10 +138,8 @@ function saveColor(name, rgb, hex){
 //============================================================================
 
 
-// vvv own api vvv
-// save button function fetches to own api (post) and saves the color in specific user's post (do i have a seperate collection for each user's color or do i utilize the user IDs?)
 
-// ========= activate (color picker) page ========== //
+// ========= chrome extension: activate (color picker) page ========== //
 //as chrome extension pop up
 //button to activate the color picker (color preview above the button. on mousemove the color changes)
 //click within the page to save the color
@@ -149,8 +147,6 @@ function saveColor(name, rgb, hex){
 
 // ============ color log page ============= //
 //navigation bar should navigate user throughout the app
-//DISPLAY COLORS from SPECIFIC USER in colors collection on the page
-//delete req: delete saved colors
 
 // ============ make palette page ============= //
 
