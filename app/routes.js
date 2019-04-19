@@ -1,4 +1,4 @@
-module.exports = function(app, passport, db) {
+module.exports = function(app, passport, db, multer, ObjectId) {
 
 // normal routes ===============================================================
 
@@ -17,7 +17,7 @@ module.exports = function(app, passport, db) {
       db.collection('colors').find({userId: req.session.passport.user}).toArray((err, result) => {
         if (err) return console.log(err)
         res.render('colorlog.ejs', {
-          user : req.user,
+          user: req.user,
           colors: result
         })
       })
@@ -83,6 +83,48 @@ module.exports = function(app, passport, db) {
       res.send('message deleted!')
     })
   })
+
+  //---------------------------------------
+  // IMAGE CODE
+  //---------------------------------------
+  var storage = multer.diskStorage({
+      destination: (req, file, cb) => {
+        cb(null, 'public/img/uploads')
+      },
+      filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now() + ".png")
+      }
+  });
+  var upload = multer({storage: storage});
+
+  app.post('/up', upload.single('uploaded-file'), (req, res, next) => {
+
+      insertDocuments(db, req, 'img/uploads/' + req.file.filename, () => {
+          //db.close();
+          //res.json({'message': 'File uploaded successfully'});
+          res.redirect('/activate')
+      });
+  });
+
+  var insertDocuments = function(db, req, filePath, callback) {
+      var collection = db.collection('users');
+      var uId = ObjectId(req.session.passport.user)
+      collection.findOneAndUpdate({"_id": uId}, {
+        $set: {
+          pickedImg: filePath
+        }
+      }, {
+        sort: {_id: -1},
+        upsert: false
+      }, (err, result) => {
+        if (err) return res.send(err)
+        callback(result)
+      })
+  }
+  //---------------------------------------
+  // IMAGE CODE END
+  //---------------------------------------
+
         // ===================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================

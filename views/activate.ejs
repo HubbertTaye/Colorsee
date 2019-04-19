@@ -16,19 +16,25 @@
     <div id="preview"></div>
     <div>
       <p></p>
-      <button type="button" name="save">Save Color</button>
+      <form action="/up" enctype="multipart/form-data" method="post">
+        <input type="file" name="uploaded-file">
+        <input type="submit" value="Upload">
+      </form>
     </div>
   </div>
 
   <!-- <div class="hover_bkgr">
-    <span class="helper"></span>
-    <div>
-      <div class="popupCloseButton">X</div>
-      <p>Color Saved!</p>
-    </div>
-  </div> -->
-  <!-- best practice: specifying width and height within the canvas tag and not in CSS to prevent distorted rendering -->
-
-  <script type="text/javascript" src="js/main.js"></script>
+  <span class="helper"></span>
+  <div>
+  <div class="popupCloseButton">X</div>
+  <p>Color Saved!</p>
+</div>
+</div> -->
+<!-- best practice: specifying width and height within the canvas tag and not in CSS to prevent distorted rendering -->
+<script type="text/javascript">
+  var pickedImg = <%- JSON.stringify(user.pickedImg) %>;
+  console.log(pickedImg)
+</script>
+<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

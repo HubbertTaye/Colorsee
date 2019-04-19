@@ -6,6 +6,9 @@ const MongoClient = require('mongodb').MongoClient
 const mongoose = require('mongoose');
 const html2canvas = require('html2canvas');
 
+const multer = require('multer');
+const ObjectId = require('mongodb').ObjectID
+
 const morgan = require('morgan');
 
 const flash = require('connect-flash');
@@ -23,7 +26,7 @@ var db
 mongoose.connect(configDB.url, (err, database) => {
   if (err) return console.log(err)
   db = database
-  require('./app/routes.js')(app, passport, db); //passes app, passport and db into file routes in folder app. routes.js runs a function
+  require('./app/routes.js')(app, passport, db, multer, ObjectId); //passes app, passport and db into file routes in folder app. routes.js runs a function
 });
 
 require('./config/passport')(passport);
