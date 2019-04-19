@@ -18,7 +18,10 @@ header{
 header h1{
   font-size: 3em;
   color: white;
-  margin: 110px 0 5px 0;
+  margin: 0px 0 5px 0;
+}
+.firstP{
+  margin: 10px 0 5px 0;
 }
 header p{
   color: white;
@@ -49,9 +52,13 @@ button{
   font-size: 1em;
   padding: 7px 10px;
   background: white;
-  color: gb(206,193,231); /* Light Grayish Violet */
-  border: 1px solid rgb(150, 150, 150);
+  color: rgb(206,193,231); /* Light Grayish Violet */
+  border: 1px solid rgb(218, 231, 193);
   border-radius: 25px;
+}
+button:hover{
+  cursor: pointer;
+  background: rgb(218, 231, 193);
 }
 ul{
   width: 100%;
@@ -75,14 +82,13 @@ li{
 }
 .web-auth-btn{
   border: none;
+  border-radius: 25px;
   background: white;
-  color: rgb(0, 204, 102);
+  color: rgb(206,193,231);
   padding: 10px 15px;
 }
 .web-auth-btn:hover{
-  border: 1px solid rgb(0, 204, 102); /*Malachite*/
-  border-radius: 25px;
-  color: rgb(150, 150, 150); /*Manatee (dark gray)*/
+  border: 1px solid rgb(218, 231, 193); /*soft green*/
 }
 .btn-container:first-of-type + p{
   font-size: 3em;
@@ -174,12 +180,16 @@ textarea{
   height: 100px;
   padding: 5px 10px;
 }
-.side-disp{
+#side-disp{
+  width: 500px;
   position: absolute;
-  top: 600px;
+  top: 800px;
   left: 700px;
   border: 1px solid black;
 }
+/* #moved{
+  position: fixed;
+} */
 
 /* PALETTE GALLERY */
 .new-pal{

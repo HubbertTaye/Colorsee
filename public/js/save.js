@@ -23,7 +23,6 @@ Array.from(del).forEach(function(el){
     //grab name, url put into variables
     let title = el.parentNode.parentNode.childNodes[1].innerText,
     url = el.parentNode.parentNode.childNodes[1].childNodes[1].childNodes[1].src
-    console.log(title, url)
     // send info to fetch with a delete method
     fetch('palette', {
       method: 'delete',

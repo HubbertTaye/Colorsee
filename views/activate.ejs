@@ -2,14 +2,23 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/canvas.css">
   <title></title>
 </head>
 <body>
-  <h1>help</h1>
+  <header>
+    <h1>Pick Some Colors!</h1>
+    <nav>
+      <ul>
+        <li><a href="/palettegalry">Gallery</a></li>
+        <li><a href="/colorlog">Color Log</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <div id="container">
-    <canvas id="canvas" width="300" height="300"></canvas>
+    <canvas id="canvas" width="600" height="400"></canvas>
     <div id="overlay"></div>
   </div>
   <div class="btm-container">
@@ -22,17 +31,9 @@
       </form>
     </div>
   </div>
-
-  <!-- <div class="hover_bkgr">
-  <span class="helper"></span>
-  <div>
-  <div class="popupCloseButton">X</div>
-  <p>Color Saved!</p>
-</div>
-</div> -->
 <!-- best practice: specifying width and height within the canvas tag and not in CSS to prevent distorted rendering -->
 <script type="text/javascript">
-  var pickedImg = <%- JSON.stringify(user.pickedImg) %>;
+  var pickedImg = <%- JSON.stringify(user.pickedImg) %>
   console.log(pickedImg)
 </script>
 <script type="text/javascript" src="js/main.js"></script>

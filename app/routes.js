@@ -57,7 +57,7 @@ module.exports = function(app, passport, db, multer, ObjectId) {
           console.log('saved to database')
 
         //optimize: page redirects to a page that simply contains the string "Color is saved to Color Log!" styled on timeout for a few seconds before redirecting back to /activate
-          res.redirect('/activate')
+          //res.redirect('/colorlog')
         })
       })//closes post into color collection
 
@@ -71,7 +71,7 @@ module.exports = function(app, passport, db, multer, ObjectId) {
 
     //post into palettes collection of database
     app.post('/palette', (req, res) =>{
-      db.collection('palettes').insertOne({title: req.body.title, colors: req.body.colors, image: req.body.image, userId: req.session.passport.user}, (err, result) =>{
+      db.collection('palettes').insertOne({title: req.body.title, desc: req.body.desc, colors: req.body.colors, image: req.body.image, userId: req.session.passport.user}, (err, result) =>{
         if (err) return console.log(err)
         console.log('saved to database')
       })

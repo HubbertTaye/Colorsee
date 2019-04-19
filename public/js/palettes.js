@@ -33,18 +33,20 @@ checkboxes.forEach(checkbox => {
 }) //closes checkbox forEach
 
 //save palette into database
-const btn = document.querySelector('button')
+const btn = document.querySelector('#mkPalBtn')
 btn.addEventListener('click', function(){
   //declare variables to hold values that will be saved into palettes collection db
   let palName = document.querySelector('#palName').value,
   desc = document.querySelector('#desc').value,
   chColors = document.querySelectorAll('.addColor:checked'),
-  palUrl = canvas.toDataURL('image/png', 1.0)
+  palUrl = canvas.toDataURL('image/png', 1.0),
+  allColors = []
   //all checked colors are parsed to include the proper string info and then made into an object
   chColors.forEach(checked => {
     let elem = checked.parentNode.parentNode.childNodes[3];
     let pColor = new Color(elem.childNodes[1].textContent, elem.childNodes[3].textContent, elem.childNodes[5].textContent.replace('rgb', ''));
-
+    allColors.push(pColor)
+    console.log(allColors, palUrl, desc, palName)
   }) //closes forEach on NodeList colors
   //save into palettes database as a new palette for the user
   fetch('palette', {
@@ -53,7 +55,7 @@ btn.addEventListener('click', function(){
     body: JSON.stringify({
       'title': palName,
       'desc': desc,
-      'colors': arrColors,
+      'colors': allColors,
       'image': palUrl
     })
   })
@@ -61,6 +63,6 @@ btn.addEventListener('click', function(){
     if (response.ok) return response.json()
   })
   .then(data =>{
-    window.location.reload(true)
   })
+  window.location.href = '/palettegalry'
 }) //closes event listener on create palette btn
