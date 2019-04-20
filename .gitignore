@@ -61,4 +61,5 @@ typings/
 .next
 
 # other files
-config/
+config/database.js
+*.env
