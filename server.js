@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
@@ -15,8 +17,18 @@ const bodyParser = require('body-parser');
 
 const passport = require('passport');
 const session = require('express-session');
+let configDB;
 
-const configDB = require('./config/database.js');
+if (process.env.NODE_ENV !== 'production') {
+  console.log("local dev environment");
+  configDB = require('./config/database.js');
+} else {
+  console.log("production environment");
+  configDB = {
+    'url' : process.env.URL,
+    'dbName' : process.env.DBNAME
+  }
+}
 
 var db
 
@@ -38,7 +50,7 @@ app.set('view engine', 'ejs');
 
 // required for passport
 app.use(session({
-    secret: 'colorsaremagic', // session secret
+    secret: process.env.SESSION_SECRET, // session secret
     resave: true,
     saveUninitialized: true
 }));
