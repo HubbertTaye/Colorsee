@@ -31,7 +31,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 var db
-
+// connect mongodb
 mongoose.connect(configDB.url, (err, database) => {
   if (err) return console.log(err)
   db = database
