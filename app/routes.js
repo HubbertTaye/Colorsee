@@ -8,9 +8,13 @@ module.exports = function(app, passport, db, multer, ObjectId) {
     });
 
     app.get('/activate', isLoggedIn, function(req, res){
-      res.render('activate.ejs', {
-        user: req.user
-      });
+      db.collection('user').find({userId:req.session.passport.user}).toArray((err, result)=>{
+        if (err) return console.log(err)
+        res.render('activate.ejs', {
+          user: req.user,
+          user: result
+        });
+      })
     });
 
     app.get('/colorlog', isLoggedIn, function(req, res) {
