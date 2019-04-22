@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <section>
-
     <header>
       <h1>Returning User</h1>
     </header>
@@ -15,9 +13,9 @@
     <% if (message.length > 0) { %>
         <div class="alert alert-danger"><%= message %></div>
     <% } %>
-
+<section class="middle-container">
     <!-- LOGIN FORM -->
-    <div class="middle-container">
+    <div>
       <form action="/login" method="post">
         <div class="elbowroom">
             <label>Email:</label>
@@ -31,11 +29,10 @@
         <button class="web-auth-btn small-btn" type="submit">Login</button>
       </form>
     </div>
-
-<div class="bottom-container">
-  <p>New Here? <a href="/signup">Signup!</a></p>
-  <p>Go <a href="/">back</a>.</p>
-</div>
   </section>
+  <footer>
+    <p>New Here? <a href="/signup">Signup!</a></p>
+    <p>Go <a href="/">back</a>.</p>
+  </footer>
 </body>
 </html>

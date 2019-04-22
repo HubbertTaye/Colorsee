@@ -48,12 +48,21 @@ app.use(express.static('public'))
 
 app.set('view engine', 'ejs');
 
+if (process.env.NODE_ENV !== 'production') {
 // required for passport
 app.use(session({
-    secret: process.env.SESSION_SECRET, // session secret
+    secret: configDB.secret, // session secret
     resave: true,
     saveUninitialized: true
-}));
+}))
+}else{
+app.use(session({
+  secret: process.env.SESSION_SECRET, // session secret
+  resave: true,
+  saveUninitialized: true
+}))
+};
+
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session

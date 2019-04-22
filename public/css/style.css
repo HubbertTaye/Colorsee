@@ -4,21 +4,23 @@
 body {
     margin: 0;
     text-align: center;
+    background: #F5F6FA;
+    background-size: 100%;
+    font-family: sans-serif;
 }
 header{
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background:  url(../img/colorsee_finalproject_banner_.png) no-repeat center;
-  background-size: cover;
-  background-position: bottom center;
-  height: 300px;
+  background: rgba(232, 185, 136 0.13);
+  height: 150px;
 }
 header h1{
   font-size: 3em;
-  color: white;
-  margin: 110px 0 5px 0;
+  color: rgb(150, 150, 150);
+  text-align: center;
+  /* text-shadow: 1px 1px 2px rgb(31, 29, 50), 0 0 1em rgb(242, 213, 155), 0 0 0.2em rgb(242, 213, 155); */
 }
 header p{
   color: white;
@@ -49,7 +51,7 @@ button{
   font-size: 1em;
   padding: 7px 10px;
   background: white;
-  color: gb(206,193,231); /* Light Grayish Violet */
+  color: rgb(206,193,231); /* Light Grayish Violet */
   border: 1px solid rgb(150, 150, 150);
   border-radius: 25px;
 }
@@ -62,8 +64,10 @@ li{
 .middle-container{
   display: flex;
   justify-content: center;
-  margin:30px 0 0 35%;
-  width: 30%;
+  align-content: center;
+}
+.middle-container div{
+  width: 100%;
   flex-direction: column;
 }
 .btn-container {
@@ -76,12 +80,13 @@ li{
 .web-auth-btn{
   border: none;
   background: white;
-  color: rgb(0, 204, 102);
+  color: rgb(206,193,231);
+  border-radius: 25px;
   padding: 10px 15px;
 }
 .web-auth-btn:hover{
-  border: 1px solid rgb(0, 204, 102); /*Malachite*/
-  border-radius: 25px;
+  cursor: pointer;
+  background:rgb(206,193,231);
   color: rgb(150, 150, 150); /*Manatee (dark gray)*/
 }
 .btn-container:first-of-type + p{
@@ -107,14 +112,15 @@ li{
 .small-btn{
   padding: 3px 6px;
 }
-.bottom-container{
+footer{
   margin: 30px 0;
+  padding-bottom: 400px;
   display: flex;
   flex-direction: column;
   align-content: flex-end;
   justify-content: center;
 }
-.bottom-container p{
+footer p{
   margin: 0 0;
 }
 
@@ -129,9 +135,10 @@ li{
 width: 100%;
 padding: 10px;
 margin-bottom: 5px;
+background: white;
 color: rgb(150, 150, 150);
 border: 1px solid rgb(150, 150, 150);
-border-radius: 25px;
+border-radius: 5px;
 display: flex;
 flex-wrap: wrap;
 -webkit-column-break-inside: avoid; /* Chrome, Safari */
@@ -140,6 +147,7 @@ flex-wrap: wrap;
 }
 .color-tabs span:first-of-type{
   display: inline-block;
+  border-radius: 5px;
   width: 30px;
   height: 30px;
   float:left;
