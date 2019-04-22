@@ -1,6 +1,7 @@
 //color picker
 const canvas = document.querySelector('#canvas')
 var hex, rgb
+const pickedImg = document.querySelector('#picked').textContent
 //assign button for the canvas resizing to a variable then add event to the btn
 // const cSizer = document.querySelector('button')
 // cSizer.addEventListener('click', resize)
@@ -55,7 +56,7 @@ function drawImageFromWebUrl(sourceurl){
       img.setAttribute("src", sourceurl);
 }
 // Draw a base64 image if we try with an image from URL we'll get tainted canvas error
-drawImageFromWebUrl('img/IMG_2849.jpg'); //allow users to input their own images
+drawImageFromWebUrl(pickedImg); //allow users to input their own images
 
 //starting event listener to return color wherever the mouse moves to on the canvas
 canvas.addEventListener("mousemove",function(e){
