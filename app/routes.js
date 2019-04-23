@@ -1,6 +1,7 @@
 module.exports = function(app, passport, db, multer, ObjectId) {
-
-// normal routes ===============================================================
+  //=============================================================
+//======================= GET ROUTES ===========================//
+//===============================================================
 
     // show the home page (will also have our login links)
     app.get('/', function(req, res) {
@@ -9,9 +10,7 @@ module.exports = function(app, passport, db, multer, ObjectId) {
 
     app.get('/activate', isLoggedIn, function(req, res){
       var uId = ObjectId(req.session.passport.user)
-      console.log(uId);
       db.collection('users').find({"_id": uId}).toArray((err, result) => {
-        console.log(result[0])
         if (err) return console.log(err)
         res.render('activate.ejs', {
           user: result
@@ -51,18 +50,16 @@ module.exports = function(app, passport, db, multer, ObjectId) {
       })
     });
 
-  //===============================================================
+  //=============================================================
+//===================== COLOR ROUTES ========================== //
+//===============================================================
 
     //post into colors collection of database
     app.post('/colors', (req, res) => {
-      //mandatory: save colors for a specific user
-
         //optimize: prevent user from saving a color they already have
         db.collection('colors').insertOne({alias: req.body.alias, rgb: req.body.rgb, hex: req.body.hex, userId: req.session.passport.user}, (err, result) => {
           if (err) return console.log(err)
           console.log('saved to database')
-
-        //optimize: page redirects to a page that simply contains the string "Color is saved to Color Log!" styled on timeout for a few seconds before redirecting back to /activate
           //res.redirect('/colorlog')
         })
       })//closes post into color collection
@@ -74,6 +71,10 @@ module.exports = function(app, passport, db, multer, ObjectId) {
             res.send('message deleted!')
           }
         })
+  //=============================================================
+//==================== PALETTES ROUTES ======================== //
+//===============================================================
+
 
     //post into palettes collection of database
     app.post('/palette', (req, res) =>{

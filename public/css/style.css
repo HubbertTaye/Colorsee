@@ -2,19 +2,19 @@
   box-sizing: border-box;
 }
 body {
-    margin: 0;
-    text-align: center;
-    background: #F5F6FA;
-    background-size: 100%;
-    font-family: sans-serif;
+  margin: 0;
+  text-align: center;
+  background: #F5F6FA;
+  background-size: 100%;
+  font-family: sans-serif;
 }
 .clearfix:after {
-     content: ".";
-     display: block;
-     clear: both;
-     visibility: hidden;
-     line-height: 0;
-     height: 0;
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
 }
 header{
   display: flex;
@@ -31,10 +31,10 @@ header h1{
   color: rgb(150, 150, 150);
   text-align: center;
   margin: 50px 0 0 0;
->>>>>>> 08072d2431f28a685bc8b892e7e6af732d83080c
+  background: rgba(232, 185, 136 0.13);
+  height: 150px;
 }
 header p{
-  color: white;
   margin: 0 0;
 }
 header nav{
@@ -81,54 +81,51 @@ li{
   list-style: none;
 }
 .middle-container{
+  height: 400px;
   display: flex;
   justify-content: center;
-  align-content: center;
 }
 .middle-container div{
-  width: 100%;
-  flex-direction: column;
-}
-.btn-container {
+  width: 80%;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
-  margin: 0 0;
+  align-items: center;
 }
 .web-auth-btn{
-  border: none;
-  background: white;
-  color: rgb(206,193,231);
-  border-radius: 25px;
-  padding: 10px 15px;
+  height: 60px;
+  width: 50%;
+  border: 4px solid rgba(150, 150, 150, 0.5);
+  padding: 5px 10px;
 }
 .web-auth-btn:hover{
   cursor: pointer;
   background:rgb(206,193,231);
-  color: rgb(150, 150, 150); /*Manatee (dark gray)*/
-}
-.btn-container:first-of-type + p{
-  font-size: 3rem;
-  margin: 0 0;
-  color: rgb(230,230,230); /*Platinum*/
 }
 .web-auth-btn a{
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .web-auth-btn a:hover{
   color: white;
+}
+.wheelLogo{
+  opacity:0.5;
+  width: 16%;
 }
 
 /* RETURNING USER PAGE */
 .elbowroom{
   margin: 10px 0;
 }
+.small{
+  height: 200px;
+}
 .auth-text{
   border-radius: 15px;
   border: 1px solid rgb(150, 150, 150); /*Manatee (dark gray)*/
 }
 .small-btn{
+  height: 40px;
+  width: 43%;
   padding: 3px 6px;
 }
 footer{
@@ -151,22 +148,22 @@ footer p{
   margin: 20px 0 0 0;
   padding: 0 35px 0 0;
   -webkit-columns: 3 100px;
-     -moz-columns: 3 100px;
-          columns: 3 100px;
+  -moz-columns: 3 100px;
+  columns: 3 100px;
 }
 .color-tabs{
-width: 100%;
-padding: 10px;
-margin-bottom: 5px;
-background: white;
-color: rgb(150, 150, 150);
-border: 1px solid rgb(150, 150, 150);
-border-radius: 5px;
-display: flex;
-flex-wrap: wrap;
--webkit-column-break-inside: avoid; /* Chrome, Safari */
-   page-break-inside: avoid;     /* Theoretically FF 20+ */
-   break-inside: avoid-column;  /* IE 11 */
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  background: white;
+  color: rgb(150, 150, 150);
+  border: 1px solid rgb(150, 150, 150);
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-column-break-inside: avoid; /* Chrome, Safari */
+  page-break-inside: avoid;     /* Theoretically FF 20+ */
+  break-inside: avoid-column;  /* IE 11 */
 }
 .color-tabs span:first-of-type{
   display: inline-block;
@@ -213,13 +210,18 @@ textarea{
   position: absolute;
   top: 400px;
   left: 700px;
-  border: 1px solid black;
+  border: 1px solid rgb(150, 150, 150);
+}
+#side-btns{
+  position: absolute;
+  top: 730px;
+  left: 700px;
 }
 /* PALETTE GALLERY */
 .pal-sect{
   -webkit-columns: 2 100px;
-     -moz-columns: 2 100px;
-          columns: 2 100px;
+  -moz-columns: 2 100px;
+  columns: 2 100px;
 }
 .new-pal{
   width: 100%;
