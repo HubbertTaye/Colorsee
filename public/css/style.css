@@ -34,11 +34,6 @@ header h1{
   background: rgba(232, 185, 136 0.13);
   height: 150px;
 }
-header h1{
-  font-size: 3em;
-  color: rgb(150, 150, 150);
-  text-align: center;
-}
 header p{
   margin: 0 0;
 }
