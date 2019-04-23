@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Colorsee</title>
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,8 +14,7 @@
   <% if (message.length > 0) { %>
     <div class="alert alert-danger"><%= message %></div>
     <% } %>
-    <section class="middle-container">
-      <!-- LOGIN FORM -->
+    <section class="small middle-container">
       <form action="/signup" method="post">
         <div class="elbowroom">
           <label>Email:</label>
@@ -29,7 +29,6 @@
       </form>
     </div>
   </section>
-
   <footer>
     <p>Already have an account? <a href="/login">Login</a></p>
     <p>Or go <a href="/">home</a>.</p>
