@@ -4,42 +4,52 @@
 body {
     margin: 0;
     text-align: center;
+    background: #F5F6FA;
+    background-size: 100%;
+    font-family: sans-serif;
+}
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
 }
 header{
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background:  url(../img/colorsee_finalproject_banner_.png) no-repeat center;
-  background-size: cover;
-  background-position: bottom center;
-  height: 300px;
+  background:
+  linear-gradient(#c2c8e1, #F5F6FA);
+  height: 150px;
+  margin-bottom: 30px;
 }
 header h1{
-  font-size: 3em;
-  color: white;
-  margin: 0px 0 5px 0;
-}
-.firstP{
-  margin: 10px 0 5px 0;
+  font-size: 3rem;
+  color: rgb(150, 150, 150);
+  text-align: center;
+  margin: 50px 0 0 0;
 }
 header p{
   color: white;
   margin: 0 0;
 }
+header nav{
+  height: 100px;
+  padding: 0 0 10px 0;
+  width: 100%;
+}
+header nav ul{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
 header nav ul li{
-  font-size: 1.3em;
-  float: left;
-  margin-top: 100px;
-  border-radius: 25px;
+  font-size: 1.3rem;
   padding: 5px 10px;
-}
-header nav ul li:hover{
-  background: rgb(218, 231, 193); /* Light Grayish Green */
-}
-header nav ul li:first-of-type{
-  margin-right: 910px;
-  margin-left: -50px;
 }
 p, label{
   color: rgb(150, 150, 150); /*Manatee (dark gray)*/
@@ -48,17 +58,20 @@ a{
   text-decoration: none;
   color: rgb(206,193,231); /* Light Grayish Violet */
 }
+a:hover{
+  color: rgb(150, 150, 150);
+}
 button{
-  font-size: 1em;
+  font-size: 1rem;
   padding: 7px 10px;
   background: white;
   color: rgb(206,193,231); /* Light Grayish Violet */
-  border: 1px solid rgb(218, 231, 193);
+  border: 1px solid rgb(150, 150, 150);
   border-radius: 25px;
 }
 button:hover{
   cursor: pointer;
-  background: rgb(218, 231, 193);
+  color: rgb(150, 150, 150);
 }
 ul{
   width: 100%;
@@ -69,8 +82,10 @@ li{
 .middle-container{
   display: flex;
   justify-content: center;
-  margin:30px 0 0 35%;
-  width: 30%;
+  align-content: center;
+}
+.middle-container div{
+  width: 100%;
   flex-direction: column;
 }
 .btn-container {
@@ -82,24 +97,26 @@ li{
 }
 .web-auth-btn{
   border: none;
-  border-radius: 25px;
   background: white;
   color: rgb(206,193,231);
+  border-radius: 25px;
   padding: 10px 15px;
 }
 .web-auth-btn:hover{
-  border: 1px solid rgb(218, 231, 193); /*soft green*/
+  cursor: pointer;
+  background:rgb(206,193,231);
+  color: rgb(150, 150, 150); /*Manatee (dark gray)*/
 }
 .btn-container:first-of-type + p{
-  font-size: 3em;
+  font-size: 3rem;
   margin: 0 0;
   color: rgb(230,230,230); /*Platinum*/
 }
 .web-auth-btn a{
-  font-size: 2em;
+  font-size: 2rem;
 }
 .web-auth-btn a:hover{
-  color: rgb(150, 150, 150); /*Manatee (dark gray)*/
+  color:   color: white;
 }
 
 /* RETURNING USER PAGE */
@@ -113,20 +130,25 @@ li{
 .small-btn{
   padding: 3px 6px;
 }
-.bottom-container{
+footer{
   margin: 30px 0;
+  padding-bottom: 400px;
   display: flex;
   flex-direction: column;
   align-content: flex-end;
   justify-content: center;
 }
-.bottom-container p{
+footer p{
   margin: 0 0;
 }
-
+/* color pickers */
+#picked{
+  display: none;
+}
 /* colorlog tabs */
 .color-sect{
   margin: 20px 0 0 0;
+  padding: 0 35px 0 0;
   -webkit-columns: 3 100px;
      -moz-columns: 3 100px;
           columns: 3 100px;
@@ -135,9 +157,10 @@ li{
 width: 100%;
 padding: 10px;
 margin-bottom: 5px;
+background: white;
 color: rgb(150, 150, 150);
 border: 1px solid rgb(150, 150, 150);
-border-radius: 25px;
+border-radius: 5px;
 display: flex;
 flex-wrap: wrap;
 -webkit-column-break-inside: avoid; /* Chrome, Safari */
@@ -146,6 +169,7 @@ flex-wrap: wrap;
 }
 .color-tabs span:first-of-type{
   display: inline-block;
+  border-radius: 5px;
   width: 30px;
   height: 30px;
   float:left;
@@ -180,21 +204,25 @@ textarea{
   height: 100px;
   padding: 5px 10px;
 }
+.size{
+  font-size: 0.9rem;
+  width: 30%;
+}
 #side-disp{
-  width: 500px;
   position: absolute;
-  top: 800px;
+  top: 400px;
   left: 700px;
   border: 1px solid black;
 }
-/* #moved{
-  position: fixed;
-} */
-
 /* PALETTE GALLERY */
+.pal-sect{
+  -webkit-columns: 2 100px;
+     -moz-columns: 2 100px;
+          columns: 2 100px;
+}
 .new-pal{
   width: 100%;
-  height: 295px;
+  height: 350px;
   margin-top: 45px;
   display: flex;
   align-items: center;
@@ -202,12 +230,13 @@ textarea{
   flex-direction: column;
 }
 .fa-plus-circle{
-  font-size: 3em;
+  font-size: 3rem;
   color: white;
   background: rgb(203, 232, 225);
   border-radius: 50%;
 }
 .new-pal p{
+  font-size: 1.4rem;
   color: rgb(150, 150, 150);
 }
 .new-pal:hover{
@@ -216,6 +245,16 @@ textarea{
 .pal-box{
   margin: 0 0 20px 0;
 }
-.size{
-  width: 30%;
+.pal-color{
+  color: rgb(150, 150, 150);
+}
+.pal-style{
+  font-size: 10px;
+  text-transform: uppercase;
+  border: 1px solid rgb(150, 150, 150);
+  border-radius: 5px;
+  padding: 2px;
+}
+.pal-style:hover{
+  cursor: pointer;
 }

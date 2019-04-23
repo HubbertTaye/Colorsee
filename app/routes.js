@@ -8,12 +8,14 @@ module.exports = function(app, passport, db, multer, ObjectId) {
     });
 
     app.get('/activate', isLoggedIn, function(req, res){
-      db.collection('user').find({userId:req.session.passport.user}).toArray((err, result)=>{
+      var uId = ObjectId(req.session.passport.user)
+      console.log(uId);
+      db.collection('users').find({"_id": uId}).toArray((err, result) => {
+        console.log(result[0])
         if (err) return console.log(err)
         res.render('activate.ejs', {
-          user: req.user,
           user: result
-        });
+        })
       })
     });
 
@@ -102,7 +104,6 @@ module.exports = function(app, passport, db, multer, ObjectId) {
   var upload = multer({storage: storage});
 
   app.post('/up', upload.single('uploaded-file'), (req, res, next) => {
-
       insertDocuments(db, req, 'img/uploads/' + req.file.filename, () => {
           //db.close();
           //res.json({'message': 'File uploaded successfully'});

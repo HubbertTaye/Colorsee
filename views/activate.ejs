@@ -16,11 +16,11 @@
       </ul>
     </nav>
   </header>
-
-  <div id="container">
+<section class="color-picker">
+  <div id="container clearfix">
     <canvas id="canvas" width="600" height="400"></canvas>
     <div id="overlay"></div>
-    <span id="picked"><%= user.pickedImg %></span>
+    <span id="picked"><%= user[0].pickedImg %></span>
   </div>
   <div class="btm-container">
     <div id="preview"></div>
@@ -32,6 +32,7 @@
       </form>
     </div>
   </div>
+  </section>
 <!-- best practice: specifying width and height within the canvas tag and not in CSS to prevent distorted rendering -->
 <script type="text/javascript" src="js/main.js"></script>
 </body>

@@ -3,13 +3,13 @@
 // ========================================================================= //
 
 //declare a variable to hold all the download icons in palettegalry.ejs
-let dnlds = document.querySelectorAll('.fa-download')
-let del = document.querySelectorAll('.fa-times-circle')
+let dnlds = document.querySelectorAll('.dwnld')
+let del = document.querySelectorAll('.del')
 
 dnlds.forEach(dnld => {
   dnld.addEventListener('click', function(){
-    let title = dnld.parentNode.parentNode.childNodes[1].innerText
-    let imgUrl = this.parentNode.parentNode.childNodes[1].childNodes[1].childNodes[1].src
+    let title = dnld.parentNode.childNodes[1].childNodes[3].childNodes[1].textContent
+    let imgUrl = this.parentNode.childNodes[1].childNodes[1].childNodes[1].src
     let link = document.createElement('a');
     //optimization: set the string to contain the palette's name
     link.download = `${title}.png`;
@@ -21,8 +21,8 @@ dnlds.forEach(dnld => {
 Array.from(del).forEach(function(el){
   el.addEventListener('click', ()=>{
     //grab name, url put into variables
-    let title = el.parentNode.parentNode.childNodes[1].innerText,
-    url = el.parentNode.parentNode.childNodes[1].childNodes[1].childNodes[1].src
+    let title = el.parentNode.childNodes[1].childNodes[3].childNodes[1].textContent,
+    url = el.parentNode.childNodes[1].childNodes[1].childNodes[1].src
     // send info to fetch with a delete method
     fetch('palette', {
       method: 'delete',
