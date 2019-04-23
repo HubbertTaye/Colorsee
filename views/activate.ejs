@@ -2,24 +2,42 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/canvas.css">
   <title></title>
 </head>
 <body>
   <header>
-    <h1>Pick a Color</h1>
+    <h1>Pick Some Colors!</h1>
+    <nav>
+      <ul>
+        <li><a href="/palettegalry">Gallery</a></li>
+        <li><a href="/colorlog">Color Log</a></li>
+      </ul>
+    </nav>
   </header>
-  <div id="container">
-    <canvas id="canvas" width="300" height="300"></canvas>
+<section class="color-picker">
+  <div id="container clearfix">
+    <canvas id="canvas" width="600" height="400"></canvas>
     <div id="overlay"></div>
+    <span id="picked"><%= user[0].pickedImg %></span>
   </div>
   <div class="btm-container">
     <div id="preview"></div>
     <div>
       <p></p>
-      <button type="button" name="save">Save Color</button>
+      <form action="/up" enctype="multipart/form-data" method="post">
+        <input type="file" name="uploaded-file">
+        <input type="submit" value="Upload">
+      </form>
     </div>
   </div>
+<<<<<<< HEAD
+  </section>
+<!-- best practice: specifying width and height within the canvas tag and not in CSS to prevent distorted rendering -->
+<script type="text/javascript" src="js/main.js"></script>
+=======
   <script type="text/javascript" src="js/main.js"></script>
+>>>>>>> master
 </body>
 </html>

@@ -18,13 +18,13 @@
         </ul>
       </nav>
     </header>
-    <section>
       <section class="new-pal">
         <a href="/mkpalette">
           <i class="fas fa-plus-circle"></i>
           <p>New Palette</p>
         </a>
       </section>
+      <section class="pal-sect">
       <!--if u remove the div pls edit save.js variable that holds img src-->
       <ul>
         <% for(var i=0; i<palettes.length; i++) {%>
@@ -34,12 +34,16 @@
               <img src="<%=palettes[i].image%>" alt="">
             </span>
             <div class="pal-info">
+<<<<<<< HEAD
+              <span class="pal-color"><%= palettes[i].title %></span>
+=======
               <span><%= palettes[i].title %></span>
               <span class="desc"><%= palettes[i].desc %></span>
+>>>>>>> master
             </div>
           </div>
-          <span><i class="fas fa-download"></i></span>
-          <span><i class="fas fa-times-circle"></i></span>
+          <span class="dwnld pal-style pal-color"><i class="fas fa-download"></i> Download</span>
+          <span class="del pal-style pal-color"><i class="fas fa-times-circle"></i> Delete</span>
         </li>
         <%}%>
       </ul>
