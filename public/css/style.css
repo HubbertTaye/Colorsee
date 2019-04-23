@@ -202,6 +202,10 @@ textarea{
   height: 100px;
   padding: 5px 10px;
 }
+.create-btm ul{
+  overflow-y: scroll;
+  height: 500px;
+}
 .size{
   font-size: 0.9rem;
   width: 30%;
