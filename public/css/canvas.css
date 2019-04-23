@@ -3,11 +3,13 @@
 }
 #container canvas, #overlay {
   position: absolute;
+  margin: 170px 0 0 -290px;
 }
 canvas {
   border: 1px solid black;
 }
 .btm-container{
+  margin: 50px 0 0 0;
   display: flex;
   justify-content: center;
   flex-direction: row;

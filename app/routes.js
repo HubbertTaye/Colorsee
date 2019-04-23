@@ -1,4 +1,4 @@
-module.exports = function(app, passport, db) {
+module.exports = function(app, passport, db, multer, ObjectId) {
 
 // normal routes ===============================================================
 
@@ -8,16 +8,22 @@ module.exports = function(app, passport, db) {
     });
 
     app.get('/activate', isLoggedIn, function(req, res){
-      res.render('activate.ejs', {
-        user: req.user
-      });
+      var uId = ObjectId(req.session.passport.user)
+      console.log(uId);
+      db.collection('users').find({"_id": uId}).toArray((err, result) => {
+        console.log(result[0])
+        if (err) return console.log(err)
+        res.render('activate.ejs', {
+          user: result
+        })
+      })
     });
 
     app.get('/colorlog', isLoggedIn, function(req, res) {
       db.collection('colors').find({userId: req.session.passport.user}).toArray((err, result) => {
         if (err) return console.log(err)
         res.render('colorlog.ejs', {
-          user : req.user,
+          user: req.user,
           colors: result
         })
       })
@@ -57,7 +63,7 @@ module.exports = function(app, passport, db) {
           console.log('saved to database')
 
         //optimize: page redirects to a page that simply contains the string "Color is saved to Color Log!" styled on timeout for a few seconds before redirecting back to /activate
-          res.redirect('/activate')
+          //res.redirect('/colorlog')
         })
       })//closes post into color collection
 
@@ -71,7 +77,7 @@ module.exports = function(app, passport, db) {
 
     //post into palettes collection of database
     app.post('/palette', (req, res) =>{
-      db.collection('palettes').insertOne({title: req.body.title, colors: req.body.colors, image: req.body.image, userId: req.session.passport.user}, (err, result) =>{
+      db.collection('palettes').insertOne({title: req.body.title, desc: req.body.desc, colors: req.body.colors, image: req.body.image, userId: req.session.passport.user}, (err, result) =>{
         if (err) return console.log(err)
         console.log('saved to database')
       })
@@ -83,6 +89,47 @@ module.exports = function(app, passport, db) {
       res.send('message deleted!')
     })
   })
+
+  //---------------------------------------
+  // IMAGE CODE
+  //---------------------------------------
+  var storage = multer.diskStorage({
+      destination: (req, file, cb) => {
+        cb(null, 'public/img/uploads')
+      },
+      filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now() + ".png")
+      }
+  });
+  var upload = multer({storage: storage});
+
+  app.post('/up', upload.single('uploaded-file'), (req, res, next) => {
+      insertDocuments(db, req, 'img/uploads/' + req.file.filename, () => {
+          //db.close();
+          //res.json({'message': 'File uploaded successfully'});
+          res.redirect('/activate')
+      });
+  });
+
+  var insertDocuments = function(db, req, filePath, callback) {
+      var collection = db.collection('users');
+      var uId = ObjectId(req.session.passport.user)
+      collection.findOneAndUpdate({"_id": uId}, {
+        $set: {
+          pickedImg: filePath
+        }
+      }, {
+        sort: {_id: -1},
+        upsert: false
+      }, (err, result) => {
+        if (err) return res.send(err)
+        callback(result)
+      })
+  }
+  //---------------------------------------
+  // IMAGE CODE END
+  //---------------------------------------
+
         // ===================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================
