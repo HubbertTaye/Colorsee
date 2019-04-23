@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Colorsee</title>
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-    <section>
-      <h1>Sign Up</h1>
+<head>
+  <meta charset="utf-8">
+  <title>Colorsee</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>New User</h1>
+  </header>
 
-        <% if (message.length > 0) { %>
-            <div class="alert alert-danger"><%= message %></div>
-        <% } %>
+  <% if (message.length > 0) { %>
+    <div class="alert alert-danger"><%= message %></div>
+    <% } %>
+    <section class="middle-container">
+      <!-- LOGIN FORM -->
+      <form action="/signup" method="post">
+        <div class="elbowroom">
+          <label>Email:</label>
+          <input type="text" class="auth-text" name="email">
+        </div>
+        <div class="elbowroom">
+          <label>Password:</label>
+          <input type="password" class="auth-text" name="password">
+        </div>
 
-        <!-- LOGIN FORM -->
-        <form action="/signup" method="post">
-            <div>
-                <label>Email</label>
-                <input type="text" name="email">
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password">
-            </div>
+        <button class="web-auth-btn small-btn" type="submit">Sign up</button>
+      </form>
+    </div>
+  </section>
 
-            <button type="submit">Signup</button>
-        </form>
-
-    <hr>
-
+  <footer>
     <p>Already have an account? <a href="/login">Login</a></p>
     <p>Or go <a href="/">home</a>.</p>
-      </section>
-  </body>
+  </footer>
+</body>
 </html>
