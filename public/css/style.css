@@ -293,6 +293,7 @@ textarea{
   -webkit-columns: 2 100px;
   -moz-columns: 2 100px;
   columns: 2 100px;
+  margin-bottom: 10px;
 }
 .new-pal{
   width: 100%;
@@ -318,9 +319,11 @@ textarea{
 }
 .pal-box{
   margin: 0 0 20px 0;
+  max-width: 500px;
 }
 .pal-color{
   color: rgb(150, 150, 150);
+  margin-right: 10px;
 }
 .pal-style{
   font-size: 10px;

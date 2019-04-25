@@ -1,63 +1,59 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Colorsee: Pick Colors and Make Palettes</title>
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Rubik" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-    <header>
-      <section>
-        <img src="img/colorwheel.png" alt="logo" class="wheel">
-        <h1>Palettes Gallery</h1>
-      </section>
-      <nav>
-        <ul>
-          <li>
-            <a href="/activate">
-              <img src="img/eyedropper2.png" alt="color picker" class="resize">
-              <span>Color Picker</span>
-            </a>
-          </li>
-          <li>
-            <a href="/colorlog">
-              <img src="img/arrowright.png" alt="arrow icon" class="resize">
-              <span>Color Log</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+<head>
+  <meta charset="utf-8">
+  <title>Colorsee: Pick Colors and Make Palettes</title>
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Rubik" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
     <section>
-      <h2>Download or delete previously made palettes. Don't have any? Make one!</h2>
+      <img src="img/colorwheel.png" alt="logo" class="wheel">
+      <h1>Palettes Gallery</h1>
     </section>
-      <section class="new-pal">
-        <a href="/mkpalette">
-          <i class="fas fa-plus-circle"></i>
-          <p>New Palette</p>
-        </a>
-      </section>
-      <section class="pal-sect">
-      <!--if u remove the div pls edit save.js variable that holds img src-->
+    <nav>
       <ul>
-        <% for(var i=0; i<palettes.length; i++) {%>
+        <li>
+          <a href="/activate">
+            <img src="img/eyedropper2.png" alt="color picker" class="resize">
+            <span>Color Picker</span>
+          </a>
+        </li>
+        <li>
+          <a href="/colorlog">
+            <img src="img/arrowright.png" alt="arrow icon" class="resize">
+            <span>Color Log</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <section>
+    <h2>Download or delete previously made palettes. Don't have any? Make one!</h2>
+  </section>
+  <section class="new-pal">
+    <a href="/mkpalette">
+      <i class="fas fa-plus-circle"></i>
+      <p>New Palette</p>
+    </a>
+  </section>
+  <section class="pal-sect">
+    <!--if u remove the div pls edit save.js variable that holds img src-->
+    <ul>
+      <% for(var i=0; i<palettes.length; i++) {%>
         <li class="pal-box">
-          <div>
-            <span>
-              <img src="<%=palettes[i].image%>" alt="">
-            </span>
-            <div class="pal-info">
-              <span class="pal-color"><%= palettes[i].title %></span>
-            </div>
-          </div>
-          <span class="dwnld pal-style pal-color"><i class="fas fa-download"></i> Download</span>
-          <span class="del pal-style pal-color"><i class="fas fa-times-circle"></i> Delete</span>
+          <span>
+            <img src="<%=palettes[i].image%>" alt="">
+          </span>
+          <span class="pal-color"><%= palettes[i].title %></span>
+          <span class="dwnld pal-style"><i class="fas fa-download"></i> Download</span>
+          <span class="del pal-style"><i class="fas fa-times-circle"></i> Delete</span>
         </li>
         <%}%>
       </ul>
     </section>
     <script type="text/javascript" src="js/save.js"></script>
   </body>
-</html>
+  </html>
