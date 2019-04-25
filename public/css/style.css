@@ -16,6 +16,10 @@ body {
   line-height: 0;
   height: 0;
 }
+p, label, h2, li{
+  font-family: 'Nanum Gothic', sans-serif;
+  color: rgb(150, 150, 150); /*Manatee (dark gray)*/
+}
 header{
   display: flex;
   align-items: center;
@@ -27,12 +31,23 @@ header{
   margin-bottom: 30px;
 }
 header h1{
+  font-family: 'Rubik', sans-serif;
   font-size: 3rem;
   color: rgb(150, 150, 150);
   text-align: center;
-  margin: 50px 0 0 0;
+  margin: 0;
+  align-self: center;
+}
+header section{
   background: rgba(232, 185, 136 0.13);
+  margin: 50px 0 0 0;
+  display: flex;
   height: 150px;
+}
+.wheel{
+  width: 64px;
+  height: 60px;
+  align-self: center;
 }
 header p{
   margin: 0 0;
@@ -41,40 +56,57 @@ header nav{
   height: 100px;
   padding: 0 0 10px 0;
   width: 100%;
+  margin-right: 35px;
 }
 header nav ul{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
 }
 header nav ul li{
   font-size: 1.3rem;
   padding: 5px 10px;
 }
-p, label{
-  color: rgb(150, 150, 150); /*Manatee (dark gray)*/
+
+ul li a span {
+    font-size: 24px;
+    position: relative;
+    top: -8px;
+}
+.fa-times-circle:hover{
+  cursor: pointer;
+}
+.resize{
+  max-width: 40px;
+  max-height: 40px;
 }
 a{
+  font-family: 'Rubik', sans-serif;
   text-decoration: none;
-  color: rgb(206,193,231); /* Light Grayish Violet */
+  color: rgb(177, 156, 217); /* Light Grayish Violet */
 }
 a:hover{
-  color: rgb(150, 150, 150);
+  color: rgb(	0, 0, 51);
 }
 button{
-  font-size: 1rem;
-  padding: 7px 10px;
-  background: white;
-  color: rgb(206,193,231); /* Light Grayish Violet */
-  border: 1px solid rgb(150, 150, 150);
-  border-radius: 25px;
+  color: rgb(177, 156, 217);
+	padding: 15px 25px;
+	display: inline-block;
+	border: 1px solid rgba(194, 200, 225,0.21);
+	border-bottom-color: rgba(194, 200, 225,0.34);
+	text-shadow:0 1px 0 rgba(0,0,0,0.15);
+	box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset,
+				      0 2px 0 -1px rgba(0,0,0,0.13),
+				      0 3px 0 -1px rgba(0,0,0,0.08),
+				      0 3px 13px -1px rgba(0,0,0,0.21);
 }
 button:hover{
   cursor: pointer;
-  color: rgb(150, 150, 150);
+  color: rgb(	0, 0, 51);
 }
 ul{
+  margin: 0;
   width: 100%;
 }
 li{
@@ -94,39 +126,45 @@ li{
 .web-auth-btn{
   height: 60px;
   width: 50%;
-  border: 4px solid rgba(150, 150, 150, 0.5);
   padding: 5px 10px;
 }
 .web-auth-btn:hover{
   cursor: pointer;
-  background:rgb(206,193,231);
 }
 .web-auth-btn a{
   font-size: 1.5rem;
 }
-.web-auth-btn a:hover{
-  color: white;
-}
 .wheelLogo{
-  opacity:0.5;
+  opacity:0.7;
   width: 16%;
 }
 
 /* RETURNING USER PAGE */
-.elbowroom{
-  margin: 10px 0;
+.auth-form{
+  display: flex;
+  align-items: center;
+  margin: 1rem auto;
+  max-width: 540px;
+}
+.auth-form fieldset{
+  display: flex;
+  justify-content: space-between;
+  border: none;
+}
+.auth-form label{
+  display: flex;
+  flex: 1;
+}
+.auth-form input{
+  display: flex;
+  flex: 2;
 }
 .small{
   height: 200px;
 }
-.auth-text{
-  border-radius: 15px;
-  border: 1px solid rgb(150, 150, 150); /*Manatee (dark gray)*/
-}
 .small-btn{
-  height: 40px;
-  width: 43%;
-  padding: 3px 6px;
+  padding: 4px 12px;
+  font-size: 1em;
 }
 footer{
   margin: 30px 0;
@@ -139,9 +177,36 @@ footer{
 footer p{
   margin: 0 0;
 }
-/* color pickers */
+/* color picker */
+.color-picker{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.side-piece{
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+}
+.pos h2{
+  margin: 0;
+  color: rgb(150, 150, 150);
+  font-weight: bold;
+}
+.side-piece section{
+  display: flex;
+}
+.side-piece p{
+  width: 70%;
+  text-align: left;
+}
 #picked{
   display: none;
+}
+.upload-file{
+  font-size: 0.9rem;
+  color: rgb(150, 150, 150);
 }
 /* colorlog tabs */
 .color-sect{
@@ -193,12 +258,14 @@ footer p{
   align-items: center;
 }
 .create-top input{
-  width: 20%;
+  width: 25%;
+  font-size: 1rem;
   padding: 5px 10px;
   margin-bottom: 10px;
 }
 textarea{
   width: 50%;
+  font-size: 1rem;
   height: 100px;
   padding: 5px 10px;
 }
@@ -230,7 +297,7 @@ textarea{
 .new-pal{
   width: 100%;
   height: 350px;
-  margin-top: 45px;
+  margin: 45px 0;
   display: flex;
   align-items: center;
   justify-content: center;

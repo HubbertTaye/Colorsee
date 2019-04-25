@@ -2,17 +2,9 @@
 const canvas = document.querySelector('#canvas')
 var hex, rgb
 const pickedImg = document.querySelector('#picked').textContent
-//assign button for the canvas resizing to a variable then add event to the btn
-// const cSizer = document.querySelector('button')
-// cSizer.addEventListener('click', resize)
-//
-// //changes canvas size to current browser screen
-// function resize(){
-//   //change canvas size depending on the size of the browser screen.
-//   canvas.width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-//   canvas.height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-// }
+const logOutBtn = document.querySelector('#logout')
 
+logOutBtn.addEventListener('click', loggingOut)
 //returns an object holding x and y coordinates of the parameter's value aka canvas)
 function getPos(obj) {
     var curleft = 0, curtop = 0;
@@ -130,6 +122,18 @@ function saveColor(name, rgb, hex){
     })
     window.location.href = '/colorlog'
   }
+
+  function loggingOut(){
+    fetch('logout', {
+      method: 'get'
+    })
+    .then(response =>{
+      if (response.ok) console.log('logged out')
+    })
+    .then(function(){
+      window.location.href = '/'
+    })
+  }//closes logout funct
 //============================================================================
 
 

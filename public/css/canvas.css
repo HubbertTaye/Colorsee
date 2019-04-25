@@ -6,7 +6,7 @@
   margin: 170px 0 0 -290px;
 }
 canvas {
-  border: 1px solid black;
+  border: 2px solid black;
 }
 .btm-container{
   margin: 50px 0 0 0;
@@ -17,6 +17,8 @@ canvas {
 #preview{
   width: 100px;
   height: 100px;
+  margin: 15px;
+  border: 2px solid black;
 }
 .btm-container div{
   padding: 0 0 0 10px;

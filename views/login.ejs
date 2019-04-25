@@ -14,20 +14,17 @@
         <div class="alert alert-danger"><%= message %></div>
     <% } %>
 <section class="small middle-container">
-    <div>
-      <form action="/login" method="post">
-        <div class="elbowroom">
+      <form action="/login" method="post" class="auth-form">
+        <fieldset>
             <label>Email:</label>
-            <input type="text" class="auth-text" name="email">
-        </div>
-        <div class="elbowroom">
+            <input type="text" name="email">
+        </fieldset>
+        <fieldset>
             <label>Password:</label>
-            <input type="password" class="auth-text" name="password">
-        </div>
-
-        <button class="web-auth-btn small-btn" type="submit">Login</button>
+            <input type="password" name="password">
+        </fieldset>
+        <button class="small-btn" type="submit">Login</button>
       </form>
-    </div>
   </section>
   <footer>
     <p>New Here? <a href="/signup">Signup!</a></p>

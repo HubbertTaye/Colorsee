@@ -33,7 +33,7 @@ module.exports = function(app, passport, db, multer, ObjectId) {
         if (err) return console.log(err)
         res.render('mkpalette.ejs', {
           user : req.user,
-          colors: result
+          colors: result.reverse()
         })
       })
     });
@@ -139,7 +139,12 @@ module.exports = function(app, passport, db, multer, ObjectId) {
         // LOGIN ===============================
         // show the login form
         app.get('/login', function(req, res) {
+          if(req.user){
+            res.redirect('/activate')
+          }else{
+            //user is not logged in proceed to signup page
             res.render('login.ejs', { message: req.flash('loginMessage') });
+          }
         });
 
         // process the login form
@@ -152,7 +157,13 @@ module.exports = function(app, passport, db, multer, ObjectId) {
         // SIGNUP =================================
         // show the signup form
         app.get('/signup', function(req, res) {
+          if(req.user){
+            res.redirect('/activate')
+          }else{
+            //user is not logged in proceed to signup page
             res.render('signup.ejs', { message: req.flash('signupMessage') });
+          }
+
         });
 
         // process the signup form
@@ -161,6 +172,11 @@ module.exports = function(app, passport, db, multer, ObjectId) {
             failureRedirect : '/signup', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
+
+        app.get('/logout', function(req, res){
+          req.logout()
+          res.redirect('/')
+        });
 
 // =============================================================================
 // UNLINK ACCOUNTS =============================================================
@@ -175,7 +191,7 @@ module.exports = function(app, passport, db, multer, ObjectId) {
         user.local.email    = undefined;
         user.local.password = undefined;
         user.save(function(err) {
-            res.redirect('/profile');
+            res.redirect('/activate');
         });
     });
 

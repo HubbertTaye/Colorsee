@@ -2,17 +2,34 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Rubik" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/canvas.css">
-  <title></title>
+  <title>Colorsee: Pick Colors and Make Palettes</title>
 </head>
 <body>
   <header>
-    <h1>Pick Some Colors!</h1>
+    <section>
+      <img src="img/colorwheel.png" alt="logo" class="wheel">
+      <h1>Colorsee</h1>
+    </section>
     <nav>
       <ul>
-        <li><a href="/palettegalry">Gallery</a></li>
-        <li><a href="/colorlog">Color Log</a></li>
+        <li>
+          <a href="/palettegalry">
+            <img src="img/arrowright.png" alt="arrow icon" class="resize">
+            <span>Palette Gallery</span>
+          </a>
+        </li>
+        <li>
+          <a href="/colorlog">
+            <img src="img/arrowright.png" alt="arrow icon" class="resize">
+            <span>Color Log</span>
+          </a>
+        </li>
+        <% if(user){%>
+          <button id="logout" class="small-btn" type="button" name="button">Log Out</button>
+        <% } %>
       </ul>
     </nav>
   </header>
@@ -22,16 +39,20 @@
     <div id="overlay"></div>
     <span id="picked"><%= user[0].pickedImg %></span>
   </div>
-  <div class="btm-container">
-    <div id="preview"></div>
-    <div>
-      <p></p>
+    <section class="side-piece">
+      <section class="pos">
+        <h2>Pick some Colors!</h2>
+      </section>
+      <section>
+        <p>Choose an image from your computer and click the upload button. Once the image appears in the left frame, use your mouse to hover over any color you'd like to preview. When you find a color you like, right click to save it. The page will automatically redirect you to see your saved colors!</p>
+        <div id="preview"></div>
+      </section>
       <form action="/up" enctype="multipart/form-data" method="post">
-        <input type="file" name="uploaded-file">
-        <input type="submit" value="Upload">
+        <input class="upload-file" type="file" name="uploaded-file">
+        <button type="submit" value="Upload" name="button" class="small-btn">Upload</button>
       </form>
-    </div>
-  </div>
+    </section>
+  </section>
   <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
