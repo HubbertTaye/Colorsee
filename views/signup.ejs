@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Colorsee</title>
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Rubik" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,16 +16,15 @@
     <div class="alert alert-danger"><%= message %></div>
     <% } %>
     <section class="small middle-container">
-      <form action="/signup" method="post">
-        <div class="elbowroom">
-          <label>Email:</label>
-          <input type="text" class="auth-text" name="email">
-        </div>
-        <div class="elbowroom">
-          <label>Password:</label>
-          <input type="password" class="auth-text" name="password">
-        </div>
-
+      <form action="/signup" method="post" class="auth-form">
+        <fieldset>
+            <label>Email:</label>
+            <input type="text" name="email">
+        </fieldset>
+        <fieldset>
+            <label>Password:</label>
+            <input type="password" name="password">
+        </fieldset>
         <button class="small-btn" type="submit">Sign up</button>
       </form>
     </div>
