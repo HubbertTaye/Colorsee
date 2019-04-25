@@ -8,8 +8,8 @@ let del = document.querySelectorAll('.del')
 
 dnlds.forEach(dnld => {
   dnld.addEventListener('click', function(){
-    let title = dnld.parentNode.childNodes[1].childNodes[3].childNodes[1].textContent
-    let imgUrl = this.parentNode.childNodes[1].childNodes[1].childNodes[1].src
+    let title = this.parentNode.childNodes[3].textContent,
+    imgUrl = this.parentNode.childNodes[1].childNodes[1].src
     let link = document.createElement('a');
     //optimization: set the string to contain the palette's name
     link.download = `${title}.png`;
@@ -21,8 +21,9 @@ dnlds.forEach(dnld => {
 Array.from(del).forEach(function(el){
   el.addEventListener('click', ()=>{
     //grab name, url put into variables
-    let title = el.parentNode.childNodes[1].childNodes[3].childNodes[1].textContent,
-    url = el.parentNode.childNodes[1].childNodes[1].childNodes[1].src
+    let title = el.parentNode.childNodes[3].textContent,
+    url = el.parentNode.childNodes[1].childNodes[1].src
+    console.log(title,url)
     // send info to fetch with a delete method
     fetch('palette', {
       method: 'delete',
