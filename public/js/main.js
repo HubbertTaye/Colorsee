@@ -88,16 +88,20 @@ canvas.addEventListener("click", function(e){
     }
     // display color and coordinates.
     // document.querySelector('p').textContent = status;
-
-    fetch(`https://api.color.pizza/v1/${hex}`)
+    console.log(`http://thecolorapi.com/id?hex=${hex}`);
+    fetch(`http://www.thecolorapi.com/id?hex=${hex}`)
     .then(res => res.json())
     .then(response =>{
-      let rgb = `rgb(${response.colors[0].rgb.r}, ${response.colors[0].rgb.g}, ${response.colors[0].rgb.b})`
-      let colorName = response.colors[0].name
+      console.log(response);
+      let rgb = response.rgb.value
+      let colorName = response.name.value
       document.querySelector('#preview').style.backgroundColor = hex;
       //document.querySelector('p').textContent = rgb || status
 
       saveColor(colorName, rgb, hex)
+    })
+    .catch(error =>{
+      console.log(`API fetch failed: ${error}`)
     })
 },false);
 

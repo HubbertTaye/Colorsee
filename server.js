@@ -22,9 +22,12 @@ const passport = require('passport');
 const session = require('express-session');
 let configDB;
 
+
 if (process.env.NODE_ENV !== 'production') {
   console.log("local dev environment");
   configDB = require('./config/database.js');
+  console.log(`BIG NOTE:${configDB.url}`);
+  //for heroku
 } else {
   console.log("production environment");
   configDB = {
